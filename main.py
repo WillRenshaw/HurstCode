@@ -6,12 +6,9 @@ import csv
 with open('test.csv', newline='') as f:
     reader = csv.reader(f)
     data = list(reader)[0]
-print(data)
 newData = []
 for i in range (1, len(data)):
     newData.append(float(data[i]))
-print(newData)
-
 ts = newData
 lags = range(2, 20)
 tau = [np.sqrt(np.std(np.subtract(ts[lag:], ts[:-lag]))) for lag in lags]
